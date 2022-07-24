@@ -9,14 +9,21 @@ pipeline {
                       url: 'https://github.com/Rajanikanthraju/hello-world.git'
                        }
               }
-         stage('Build') {
+        stage('Complie and build') {
+            agent { label 'DOCKER' }
+            steps('Building war file') {
+                sh "mvn package"
+                       }
+              }
+      /**  
+        stage('Build') {
             agent { label 'DOCKER' }
             steps('Docker build') {
                 
                 sh 'docker build -t rajanikanthraju/hello:1.3 .'
                                   }
               }
-        /**
+        
         stage('kube test') {
             agent { label 'KUBE' }
             steps {
