@@ -13,10 +13,10 @@ pipeline {
             agent { label 'DOCKER' }
             steps('Docker build') {
                 
-                sh 'docker build -t rajanikanthraju/hello:1.2 .'
+                sh 'docker build -t rajanikanthraju/hello:1.3 .'
                                   }
               }
-        
+        /**
         stage('kube test') {
             agent { label 'KUBE' }
             steps {
@@ -24,6 +24,6 @@ pipeline {
               sh 'kubectl version --client --output=yaml'
             }
         }
-        
+        **/
     }
 }
