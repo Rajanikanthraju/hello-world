@@ -3,5 +3,5 @@
 #building deployment image
 FROM tomcat:9.0-jdk8-temurin-focal 
 LABEL author=Rajanikanth
-ADD  /home/devops/jenkins_root/workspace/test_connection/webapp/target/webapp.war  /usr/local/tomcat/webapps/webapp.war
+COPY  /webapp/target/webapp.war  /usr/local/tomcat/webapps/webapp.war
 EXPOSE 8080
