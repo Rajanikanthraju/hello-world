@@ -5,7 +5,7 @@ pipeline {
             agent { label 'DOCKER' }
             steps('Docker build') {
                 
-                sh 'docker build -t rajanikanthraju/hello:${BUILD_ID} .'
+                sh 'docker build --no-cache -t rajanikanthraju/hello:${BUILD_ID} .'
                                   }
               }
       
