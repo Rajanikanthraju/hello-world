@@ -1,5 +1,5 @@
 pipeline {
-    agent any
+    agent none
       stages {
         stage('source code') {
             agent { label 'DOCKER' }
