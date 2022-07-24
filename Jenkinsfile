@@ -14,6 +14,13 @@ pipeline {
                 sh script: 'mvn clean package'
                        }
               }
+          stage('Build') {
+            agent { label 'DOCKER' }
+            steps('Docker build') {
+                
+                sh 'docker build -t rajanikanthraju/hello:1.4 .'
+                                  }
+              }
       
     }
 }
