@@ -1,7 +1,7 @@
 #Multi stage Docker file for building&deploying Application
 #Building Application
 FROM maven:3-openjdk-8 as appbuilder
-RUN git clone https://github.com/Rajanikanthraju/hello-world.git && mvn package
+RUN git clone https://github.com/Rajanikanthraju/hello-world.git && cd hello-world && mvn package
 
 #building deployment image
 FROM tomcat:9.0-jdk8-temurin-focal 
