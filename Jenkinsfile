@@ -1,7 +1,6 @@
 pipeline {
     agent any
-    triggers { pollSCM '*/5 * * * *' }
-    stages {
+      stages {
         stage('source code') {
             agent { label 'DOCKER' }
             steps('Git Clone') {
@@ -12,25 +11,9 @@ pipeline {
         stage('Complie and build') {
             agent { label 'DOCKER' }
             steps('Building war file') {
-                sh "mvn package"
+                sh script: 'mvn clean package'
                        }
               }
-      /**  
-        stage('Build') {
-            agent { label 'DOCKER' }
-            steps('Docker build') {
-                
-                sh 'docker build -t rajanikanthraju/hello:1.3 .'
-                                  }
-              }
-        
-        stage('kube test') {
-            agent { label 'KUBE' }
-            steps {
-               
-              sh 'kubectl version --client --output=yaml'
-            }
-        }
-        **/
+      
     }
 }
