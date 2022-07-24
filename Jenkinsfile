@@ -18,7 +18,7 @@ pipeline {
             agent { label 'DOCKER' }
             steps('Docker build') {
                 
-                sh 'docker build -t rajanikanthraju/hello:1.4 .'
+                sh 'docker build -t rajanikanthraju/hello:1.5 .'
                                   }
               }
       
