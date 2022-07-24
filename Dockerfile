@@ -7,7 +7,7 @@ RUN git clone https://github.com/Rajanikanthraju/hello-world.git && cd hello-wor
 #building deployment image
 FROM tomcat:9.0-jdk8-temurin-focal 
 LABEL author=Rajanikanth
-COPY --from=appbuilder /webapp/target/webapp.war  /usr/local/tomcat/webapps/webapp.war
+COPY --from=appbuilder /hello-world/webapp/target/webapp.war  /usr/local/tomcat/webapps/webapp.war
 EXPOSE 8080
 
 #FROM tomcat:9.0-jdk8-temurin-focal 
